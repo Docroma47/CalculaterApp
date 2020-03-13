@@ -28,17 +28,105 @@ public class LogicCalculate {
 
     Boolean yesPrioryti = false;
 
-    private void plus(int a, int b) {
-        SUM = String.valueOf(a + b);
+    private void plus(String A, String B) {
+        double a;
+        double b;
+        int C;
+        int D;
+        if (doubleOrInteger(A) && doubleOrInteger(B)) {
+            a = Double.parseDouble(A);
+            b = Double.parseDouble(B);
+            SUM = String.valueOf(a + b);
+        } else if (!doubleOrInteger(A) && !doubleOrInteger(B)){
+            C = Integer.parseInt(A);
+            D = Integer.parseInt(B);
+            SUM = String.valueOf(C + D);
+        } else if (doubleOrInteger(A) || doubleOrInteger(B)) {
+            if (doubleOrInteger(A)) {
+                a = Double.parseDouble(A);
+                C = Integer.parseInt(B);
+                SUM = String.valueOf(a + C);
+            }  else if (doubleOrInteger(B)) {
+                C = Integer.parseInt(A);
+                a = Double.parseDouble(B);
+                SUM = String.valueOf(C + a);
+            }
+        }
     }
-    private void minus(int a, int b) {
-        SUM = String.valueOf(a - b);
+    private void minus(String A, String B) {
+        double a;
+        double b;
+        int C;
+        int D;
+        if (doubleOrInteger(A) && doubleOrInteger(B)) {
+            a = Double.parseDouble(A);
+            b = Double.parseDouble(B);
+            SUM = String.valueOf(a - b);
+        } else if (!doubleOrInteger(A) && !doubleOrInteger(B)){
+            C = Integer.parseInt(A);
+            D = Integer.parseInt(B);
+            SUM = String.valueOf(C - D);
+        } else if (doubleOrInteger(A) || doubleOrInteger(B)) {
+            if (doubleOrInteger(A)) {
+                a = Double.parseDouble(A);
+                C = Integer.parseInt(B);
+                SUM = String.valueOf(a - C);
+            }  else if (doubleOrInteger(B)) {
+                C = Integer.parseInt(A);
+                a = Double.parseDouble(B);
+                SUM = String.valueOf(C - a);
+            }
+        }
     }
-    private void mul(int a, int b) {
-        SUM = String.valueOf(a * b);
+    private void mul(String A, String B) {
+        double a;
+        double b;
+        int C;
+        int D;
+        if (doubleOrInteger(A) && doubleOrInteger(B)) {
+            a = Double.parseDouble(A);
+            b = Double.parseDouble(B);
+            SUM = String.valueOf(a * b);
+        } else if (!doubleOrInteger(A) && !doubleOrInteger(B)){
+            C = Integer.parseInt(A);
+            D = Integer.parseInt(B);
+            SUM = String.valueOf(C * D);
+        } else if (doubleOrInteger(A) || doubleOrInteger(B)) {
+            if (doubleOrInteger(A)) {
+                a = Double.parseDouble(A);
+                C = Integer.parseInt(B);
+                SUM = String.valueOf(a * C);
+            }  else if (doubleOrInteger(B)) {
+                C = Integer.parseInt(A);
+                a = Double.parseDouble(B);
+                SUM = String.valueOf(C * a);
+            }
+        }
     }
-    private void div(int a, int b) {
-        SUM = String.valueOf(a / b);
+    private void div(String A, String B) {
+        double a;
+        double b;
+        int C;
+        int D;
+        if (doubleOrInteger(A) && doubleOrInteger(B)) {
+            a = Double.parseDouble(A);
+            b = Double.parseDouble(B);
+            SUM = String.valueOf(a / b);
+        } else if (!doubleOrInteger(A) && !doubleOrInteger(B)){
+            C = Integer.parseInt(A);
+            D = Integer.parseInt(B);
+            SUM = String.valueOf(C / D);
+        } else if (doubleOrInteger(A) || doubleOrInteger(B)) {
+            if (doubleOrInteger(A)) {
+                a = Double.parseDouble(A);
+                C = Integer.parseInt(B);
+                SUM = String.valueOf(a / C);
+            }  else if (doubleOrInteger(B)) {
+                C = Integer.parseInt(A);
+                a = Double.parseDouble(B);
+                SUM = String.valueOf(C / a);
+            }
+        }
     }
 
     private void scanSafe(int length, String text) {
@@ -76,6 +164,17 @@ public class LogicCalculate {
             }
         }
 
+    }
+    private Boolean doubleOrInteger(String A) {
+        if (A.length() > 2) {
+            for (int i = 0; i < A.length(); i++) {
+                if (String.valueOf(A.charAt(i)).equals(".")) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 
     private void countingOperations(Boolean bool, Boolean bool2) {
@@ -336,23 +435,18 @@ public class LogicCalculate {
     }
 
     private void operation() {
-        int a;
-        int b;
-        a = Integer.parseInt(A);
-        b = Integer.parseInt(B);
-
         switch (sing) {
             case "+":
-                plus(a, b);
+                plus(A, B);
                 break;
             case "-":
-                minus(a, b);
+                minus(A, B);
                 break;
             case "*":
-                mul(a, b);
+                mul(A, B);
                 break;
             case "/":
-                div(a, b);
+                div(A, B);
                 break;
         }
 
