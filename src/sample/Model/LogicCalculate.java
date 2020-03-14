@@ -1,7 +1,5 @@
 package sample.Model;
 
-import sample.Veiw.ViewResultCalculate;
-
 public class LogicCalculate {
     String[] saveLine2 = new String[1];
     String[] saveLine1 = new String[1];
